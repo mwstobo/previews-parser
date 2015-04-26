@@ -20,20 +20,20 @@ publisher_keys = {
 
 def parse(string):
     lines = string.split("\n")
-    lines = collections.deque([l for l in lines if not len(l) == 0])
+    lines = collections.deque([l.strip() for l in lines if l.strip()])
     output = collections.defaultdict(list)
     under_publisher = False
     current_publisher = None
     seen_issues = []
     while len(lines) > 0:
         if not under_publisher:
-            l = lines.popleft().strip()
+            l = lines.popleft()
             match = regexes['publisher'].match(l)
             if match:
                 under_publisher = True
                 current_publisher = publisher_keys[match.group(0)]
         else:
-            l = lines.popleft().strip()
+            l = lines.popleft()
             match = regexes['release'].match(l)
             if match:
                 release_info = parse_release_info(match.group(2))
