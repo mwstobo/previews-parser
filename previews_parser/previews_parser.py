@@ -11,17 +11,17 @@ regexes = {
 }
 
 publisher_keys = {
-    'DARK HORSE COMICS': 'dark_horse',
-    'DC COMICS': 'dc',
-    'IDW PUBLISHING': 'idw',
-    'IMAGE COMICS': 'image',
-    'MARVEL COMICS': 'marvel'
+    'DARK HORSE COMICS': 'Dark Horse Comics',
+    'DC COMICS': 'DC Comics',
+    'IDW PUBLISHING': 'IDW Publishing',
+    'IMAGE COMICS': 'Image Comics',
+    'MARVEL COMICS': 'Marvel Comics'
 }
 
 def parse(string):
     lines = string.split("\n")
     lines = collections.deque([l.strip() for l in lines if l.strip()])
-    output = collections.defaultdict(list)
+    output = []
     under_publisher = False
     current_publisher = None
     seen_issues = []
@@ -49,9 +49,10 @@ def parse(string):
                         'series': release_info['series'],
                         'issue': release_info['issue'],
                         'price': float(match.group(3)),
+                        'publisher': current_publisher,
                         'extra_info': extra_info
                     }
-                    output[current_publisher].append(comic)
+                    output.append(comic)
                     seen_issues.append((release_info['series'], release_info['issue']))
             else:
                 under_publisher = False
