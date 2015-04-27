@@ -1,4 +1,5 @@
 import collections
+import datetime
 import re
 
 regexes = {
@@ -7,7 +8,8 @@ regexes = {
     'series': re.compile('(.*?)#\d+'),
     'issue_no': re.compile('#(\d+)'),
     'mature': re.compile('\(MR\)'),
-    'printing': re.compile('(\d+)\w{2}\s+(printing|ptg)', re.IGNORECASE)
+    'printing': re.compile('(\d+)\w{2}\s+(printing|ptg)', re.IGNORECASE),
+    'date': re.compile('(\d+)/(\d+)/(\d+)', re.IGNORECASE),
 }
 
 publisher_keys = {
@@ -59,11 +61,6 @@ def parse(string):
                 lines.appendleft(l)
     return output
 
-
-
-def parse_names(string):
-    return
-
 def parse_release_info(string):
     output = collections.defaultdict(lambda: None)
     series_match = regexes['series'].search(string)
@@ -89,3 +86,15 @@ def parse_release_info(string):
         output['printing'] = int(printing_match.group(1))
 
     return output
+
+def parse_date(string):
+    lines = string.split("\n")
+    lines = collections.deque([l.strip() for l in lines if l.strip()])
+    while len(lines) > 0:
+        l = lines.popleft()
+        match = regexes['date'].search(l)
+        if match:
+            month = int(match.group(1))
+            day = int(match.group(2))
+            year = int(match.group(3))
+            return datetime.date(year, month, day)
