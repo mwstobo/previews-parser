@@ -3,7 +3,7 @@ import datetime
 import re
 
 regexes = {
-    'release': re.compile('(\w{3}\d{6})\s*(.*)\s*\$(\d+\.\d+|pi)', re.IGNORECASE),
+    'release': re.compile('(\w{3}\d{6})\s*(.*)\s*(\$(\d+\.\d+)|pi)', re.IGNORECASE),
     'publisher': re.compile('^(dc comics|dark horse comics|idw publishing|image comics|marvel comics)$', re.IGNORECASE),
     'series': re.compile('(.*?)#\d+'),
     'issue_no': re.compile('#(\d+)'),
@@ -42,6 +42,10 @@ def parse(string):
                 if release_info != {}:
                     if (release_info['series'], release_info['issue']) in seen_issues:
                         continue
+                    try:
+                        price = float(match.group(4))
+                    except:
+                        continue
                     extra_info = {
                         'mature':  release_info['mature'] or False,
                         'printing': release_info['printing'] or 1
@@ -50,7 +54,7 @@ def parse(string):
                         'code': match.group(1),
                         'series': release_info['series'],
                         'issue': release_info['issue'],
-                        'price': float(match.group(3)),
+                        'price': price,
                         'publisher': current_publisher,
                         'extra_info': extra_info
                     }

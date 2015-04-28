@@ -149,3 +149,34 @@ class PreviewsParserTest(unittest.TestCase):
         string = "DC COMICS JAN150263 AQUAMAN AND THE OTHERS #11 $2.99"
         output = previews_parser.parse(string)
         self.assertEquals(output, [])
+
+    def test_pi_in_middle(self):
+        string = "DARK HORSE COMICS\nJAN150087   ANGEL AND FAITH SEASON 10 #12 MAIN CVR  $3.50\n"
+        string += "IDW PUBLISHING\nDEC140557   STAR TREK PLANET OF THE APES #3     PI\n"
+        string += "DC COMICS\nJAN150263 AQUAMAN AND THE OTHERS #11 $2.99"
+        output = previews_parser.parse(string)
+        expected = [
+            {
+                'series': 'Angel And Faith Season 10',
+                'issue': 12,
+                'code': 'JAN150087',
+                'price': 3.50,
+                'publisher': 'Dark Horse Comics',
+                'extra_info': {
+                    'mature': False,
+                    'printing': 1
+                }
+            },
+            {
+                'series': 'Aquaman And The Others',
+                'issue': 11,
+                'code': 'JAN150263',
+                'price': 2.99,
+                'publisher': 'DC Comics',
+                'extra_info': {
+                    'mature': False,
+                    'printing': 1
+                }
+            },
+        ]
+        self.assertEquals(output, expected)
