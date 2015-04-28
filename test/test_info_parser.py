@@ -38,3 +38,8 @@ class ReleaseInfoParserTest(unittest.TestCase):
         expected = {}
         self.assertEquals(output, expected)
 
+    def test_multiple_issues(self):
+        string = "MY LITTLE PONY FIENDSHIP IS MAGIC #1-5 COMP 5 CVR BOX SET"
+        output = previews_parser.parse_release_info(string)
+        expected = {}
+        self.assertEquals(output, expected)
