@@ -46,17 +46,14 @@ def parse(string):
                         price = float(match.group(4))
                     except:
                         continue
-                    extra_info = {
-                        'mature':  release_info['mature'] or False,
-                        'printing': release_info['printing'] or 1
-                    }
                     comic = {
                         'code': match.group(1),
                         'series': release_info['series'],
                         'issue': release_info['issue'],
                         'price': price,
                         'publisher': current_publisher,
-                        'extra_info': extra_info
+                        'printing': release_info['printing'] or 1,
+                        'mature':  release_info['mature'] or False,
                     }
                     output.append(comic)
                     seen_issues.append((release_info['series'], release_info['issue']))

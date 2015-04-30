@@ -12,10 +12,8 @@ class PreviewsParserTest(unittest.TestCase):
                 'code': 'JAN150263',
                 'price': 2.99,
                 'publisher': 'DC Comics',
-                'extra_info': {
-                    'mature': False,
-                    'printing': 1
-                }
+                'mature': False,
+                'printing': 1,
             }
         ]
         self.assertEquals(output, expected)
@@ -30,10 +28,8 @@ class PreviewsParserTest(unittest.TestCase):
                 'code': 'JAN150263',
                 'price': 2.99,
                 'publisher': 'DC Comics',
-                'extra_info': {
-                    'mature': False,
-                    'printing': 1
-                }
+                'mature': False,
+                'printing': 1,
             },
             {
                 'series': 'Batman Eternal',
@@ -41,10 +37,8 @@ class PreviewsParserTest(unittest.TestCase):
                 'code': 'JAN150300',
                 'price': 2.99,
                 'publisher': 'DC Comics',
-                'extra_info': {
-                    'mature': False,
-                    'printing': 1
-                }
+                'mature': False,
+                'printing': 1,
             },
         ]
         self.assertEquals(output, expected)
@@ -60,10 +54,8 @@ class PreviewsParserTest(unittest.TestCase):
                 'code': 'JAN150087',
                 'price': 3.50,
                 'publisher': 'Dark Horse Comics',
-                'extra_info': {
-                    'mature': False,
-                    'printing': 1
-                }
+                'mature': False,
+                'printing': 1,
             },
             {
                 'series': 'Star Trek Planet Of The Apes',
@@ -71,10 +63,8 @@ class PreviewsParserTest(unittest.TestCase):
                 'code': 'DEC140557',
                 'price': 3.99,
                 'publisher': 'IDW Publishing',
-                'extra_info': {
-                    'mature': False,
-                    'printing': 1
-                }
+                'mature': False,
+                'printing': 1,
             }
         ]
         self.assertEquals(output, expected)
@@ -90,10 +80,8 @@ class PreviewsParserTest(unittest.TestCase):
                 'code': 'JAN150761',
                 'price': 3.99,
                 'publisher': 'Marvel Comics',
-                'extra_info': {
-                    'mature': False,
-                    'printing': 1
-                }
+                'mature': False,
+                'printing': 1,
             }
         ]
         self.assertEquals(output, expected)
@@ -109,10 +97,8 @@ class PreviewsParserTest(unittest.TestCase):
                 'code': 'JAN150671',
                 'price': 3.50,
                 'publisher': 'Image Comics',
-                'extra_info': {
-                    'mature': True,
-                    'printing': 1
-                }
+                'mature': True,
+                'printing': 1,
             }
         ]
         self.assertEquals(output, expected)
@@ -127,10 +113,8 @@ class PreviewsParserTest(unittest.TestCase):
                 'code': 'JAN150671',
                 'price': 3.50,
                 'publisher': 'Image Comics',
-                'extra_info': {
-                    'mature': True,
-                    'printing': 1
-                }
+                'mature': True,
+                'printing': 1,
             }
         ]
         self.assertEquals(output, expected)
@@ -162,10 +146,8 @@ class PreviewsParserTest(unittest.TestCase):
                 'code': 'JAN150087',
                 'price': 3.50,
                 'publisher': 'Dark Horse Comics',
-                'extra_info': {
-                    'mature': False,
-                    'printing': 1
-                }
+                'mature': False,
+                'printing': 1,
             },
             {
                 'series': 'Aquaman And The Others',
@@ -173,10 +155,8 @@ class PreviewsParserTest(unittest.TestCase):
                 'code': 'JAN150263',
                 'price': 2.99,
                 'publisher': 'DC Comics',
-                'extra_info': {
-                    'mature': False,
-                    'printing': 1
-                }
+                'mature': False,
+                'printing': 1,
             },
         ]
         self.assertEquals(output, expected)
