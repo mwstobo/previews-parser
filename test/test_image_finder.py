@@ -19,6 +19,14 @@ class ImageFinderTest(unittest.TestCase):
         expected = self.BASE_URL + 'test'
         self.assertEquals(output, expected)
 
+    def test_no_image_src(self):
+        publisher = 'DC Comics'
+        code = 'abc123456'
+        f_string = "<div class='StockCodeImage'><img src></img></div>"
+        self.file_mock.read.return_value = f_string
+        with self.assertRaisesRegex(previews_parser.ImageFinderError, 'image src is empty'):
+            previews_parser.get_image_location(publisher, code)
+
     def test_no_cover(self):
         publisher = 'DC Comics'
         code = 'abc123456'

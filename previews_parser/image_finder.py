@@ -37,4 +37,6 @@ def get_image_location(publisher, code):
     if not image:
         raise ImageFinderError('no image found')
     image_location = image['src']
+    if not image_location:
+        raise ImageFinderError('image src is empty')
     return BASE_URL + image_location
