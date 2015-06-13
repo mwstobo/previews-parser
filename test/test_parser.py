@@ -8,7 +8,7 @@ class PreviewsParserTest(unittest.TestCase):
         expected = [
             {
                 'series': 'Aquaman And The Others',
-                'issue': 11,
+                'issue_number': 11,
                 'code': 'JAN150263',
                 'price': 2.99,
                 'publisher': 'DC Comics',
@@ -24,7 +24,7 @@ class PreviewsParserTest(unittest.TestCase):
         expected = [
             {
                 'series': 'Aquaman And The Others',
-                'issue': 11,
+                'issue_number': 11,
                 'code': 'JAN150263',
                 'price': 2.99,
                 'publisher': 'DC Comics',
@@ -33,7 +33,7 @@ class PreviewsParserTest(unittest.TestCase):
             },
             {
                 'series': 'Batman Eternal',
-                'issue': 48,
+                'issue_number': 48,
                 'code': 'JAN150300',
                 'price': 2.99,
                 'publisher': 'DC Comics',
@@ -50,7 +50,7 @@ class PreviewsParserTest(unittest.TestCase):
         expected = [
             {
                 'series': 'Angel And Faith Season 10',
-                'issue': 12,
+                'issue_number': 12,
                 'code': 'JAN150087',
                 'price': 3.50,
                 'publisher': 'Dark Horse Comics',
@@ -59,7 +59,7 @@ class PreviewsParserTest(unittest.TestCase):
             },
             {
                 'series': 'Star Trek Planet Of The Apes',
-                'issue': 3,
+                'issue_number': 3,
                 'code': 'DEC140557',
                 'price': 3.99,
                 'publisher': 'IDW Publishing',
@@ -76,7 +76,7 @@ class PreviewsParserTest(unittest.TestCase):
         expected = [
             {
                 'series': 'All New Hawkeye',
-                'issue': 1,
+                'issue_number': 1,
                 'code': 'JAN150761',
                 'price': 3.99,
                 'publisher': 'Marvel Comics',
@@ -93,7 +93,7 @@ class PreviewsParserTest(unittest.TestCase):
         expected = [
             {
                 'series': 'Black Science',
-                'issue': 12,
+                'issue_number': 12,
                 'code': 'JAN150671',
                 'price': 3.50,
                 'publisher': 'Image Comics',
@@ -109,7 +109,7 @@ class PreviewsParserTest(unittest.TestCase):
         expected = [
             {
                 'series': 'Black Science',
-                'issue': 12,
+                'issue_number': 12,
                 'code': 'JAN150671',
                 'price': 3.50,
                 'publisher': 'Image Comics',
@@ -142,7 +142,7 @@ class PreviewsParserTest(unittest.TestCase):
         expected = [
             {
                 'series': 'Angel And Faith Season 10',
-                'issue': 12,
+                'issue_number': 12,
                 'code': 'JAN150087',
                 'price': 3.50,
                 'publisher': 'Dark Horse Comics',
@@ -151,7 +151,7 @@ class PreviewsParserTest(unittest.TestCase):
             },
             {
                 'series': 'Aquaman And The Others',
-                'issue': 11,
+                'issue_number': 11,
                 'code': 'JAN150263',
                 'price': 2.99,
                 'publisher': 'DC Comics',

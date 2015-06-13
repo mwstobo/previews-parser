@@ -40,7 +40,7 @@ def parse(string):
             if match:
                 release_info = parse_release_info(match.group(2))
                 if release_info != {}:
-                    if (release_info['series'], release_info['issue']) in seen_issues:
+                    if (release_info['series'], release_info['issue_number']) in seen_issues:
                         continue
                     try:
                         price = float(match.group(4))
@@ -49,14 +49,14 @@ def parse(string):
                     comic = {
                         'code': match.group(1),
                         'series': release_info['series'],
-                        'issue': release_info['issue'],
+                        'issue_number': release_info['issue_number'],
                         'price': price,
                         'publisher': current_publisher,
                         'printing': release_info['printing'] or 1,
                         'mature':  release_info['mature'] or False,
                     }
                     output.append(comic)
-                    seen_issues.append((release_info['series'], release_info['issue']))
+                    seen_issues.append((release_info['series'], release_info['issue_number']))
             else:
                 under_publisher = False
                 lines.appendleft(l)
@@ -74,7 +74,7 @@ def parse_release_info(string):
 
     issue_match = regexes['issue_no'].search(string)
     if issue_match:
-        output['issue'] = int(issue_match.group(1))
+        output['issue_number'] = int(issue_match.group(1))
     else:
         return {}
 

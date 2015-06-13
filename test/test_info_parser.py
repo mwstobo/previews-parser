@@ -7,7 +7,7 @@ class ReleaseInfoParserTest(unittest.TestCase):
         output = previews_parser.parse_release_info(string)
         expected = {
             'series': 'Aquaman And The Others',
-            'issue': 11,
+            'issue_number': 11,
         }
         self.assertEquals(output, expected)
 
@@ -16,7 +16,7 @@ class ReleaseInfoParserTest(unittest.TestCase):
         output = previews_parser.parse_release_info(string)
         expected = {
             'series': 'Nameless',
-            'issue': 2,
+            'issue_number': 2,
             'mature': True
         }
         self.assertEquals(output, expected)
@@ -26,7 +26,7 @@ class ReleaseInfoParserTest(unittest.TestCase):
         output = previews_parser.parse_release_info(string)
         expected = {
             'series': 'Nameless',
-            'issue': 1,
+            'issue_number': 1,
             'mature': True,
             'printing': 2
         }
@@ -54,7 +54,7 @@ class ReleaseInfoParserTest(unittest.TestCase):
         output = previews_parser.parse_release_info(string)
         expected = {
             'series': 'Batman Poster',
-            'issue': 2,
+            'issue_number': 2,
         }
         self.assertEquals(output, expected)
 
@@ -68,6 +68,6 @@ class ReleaseInfoParserTest(unittest.TestCase):
         output = previews_parser.parse_release_info(string)
         expected = {
             'series': 'Combo Pack',
-            'issue': 2,
+            'issue_number': 2,
         }
         self.assertEquals(output, expected)
