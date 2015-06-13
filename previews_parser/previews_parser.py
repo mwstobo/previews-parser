@@ -5,7 +5,7 @@ import re
 regexes = {
     'release': re.compile('(\w{3}\d{6})\s*(.*)\s*(\$(\d+\.\d+)|pi)', re.IGNORECASE),
     'publisher': re.compile('^(dc comics|dark horse comics|idw publishing|image comics|marvel comics)$', re.IGNORECASE),
-    'series': re.compile('(.*?)#\d+(?!.*poster)', re.IGNORECASE),
+    'series': re.compile('(.*?)#\d+(?!(.*poster)|.*(combo pack))', re.IGNORECASE),
     'issue_no': re.compile('#(\d+)(?!-)'),
     'mature': re.compile('\(MR\)'),
     'printing': re.compile('(\d+)\w{2}\s+(printing|ptg)', re.IGNORECASE),

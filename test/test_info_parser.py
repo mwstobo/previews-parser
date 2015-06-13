@@ -57,3 +57,17 @@ class ReleaseInfoParserTest(unittest.TestCase):
             'issue': 2,
         }
         self.assertEquals(output, expected)
+
+    def test_ignores_combo_packs(self):
+        string = "SANDMAN OVERTURE #5 COMBO PACK (MR)"
+        output = previews_parser.parse_release_info(string)
+        self.assertEquals(output, {})
+
+    def test_does_not_ignore_comic_with_combo_pack_in_title(self):
+        string = "COMBO PACK #2"
+        output = previews_parser.parse_release_info(string)
+        expected = {
+            'series': 'Combo Pack',
+            'issue': 2,
+        }
+        self.assertEquals(output, expected)
