@@ -43,7 +43,7 @@ def parse(string):
                     if (release_info['series'], release_info['issue_number']) in seen_issues:
                         continue
                     try:
-                        price = float(match.group(4))
+                        price = int(float(match.group(4)) * 100)
                     except:
                         continue
                     comic = {
