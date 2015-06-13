@@ -43,3 +43,17 @@ class ReleaseInfoParserTest(unittest.TestCase):
         output = previews_parser.parse_release_info(string)
         expected = {}
         self.assertEquals(output, expected)
+
+    def test_ignores_posters(self):
+        string = "A-FORCE #1 BY CHEUNG POSTER"
+        output = previews_parser.parse_release_info(string)
+        self.assertEquals(output, {})
+
+    def test_does_not_ignore_comic_with_poster_in_title(self):
+        string = "BATMAN POSTER #2"
+        output = previews_parser.parse_release_info(string)
+        expected = {
+            'series': 'Batman Poster',
+            'issue': 2,
+        }
+        self.assertEquals(output, expected)
